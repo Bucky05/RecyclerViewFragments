@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>learn.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #808080; font-style: italic;}
+.s3 { color: #008000; font-weight: bold;}
+.s4 { color: #0000ff;}
+.s5 { color: #808080; font-weight: bold; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+learn.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.codingblocks.recyclerviewfragments
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_learn.*
+
+<span class="s2">// TODO: Rename parameter arguments, choose names that match</span>
+<span class="s2">// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER</span>
+private const <span class="s0">val </span>ARG_PARAM1 = <span class="s3">&quot;param1&quot;</span>
+private const <span class="s0">val </span>ARG_PARAM2 = <span class="s3">&quot;param2&quot;</span>
+
+<span class="s2">/**</span>
+ <span class="s2">* A simple [Fragment] subclass.</span>
+ <span class="s2">* Use the [learn.newInstance] factory method to</span>
+ <span class="s2">* create an instance of this fragment.</span>
+ <span class="s2">*/</span>
+<span class="s0">class </span>learn : Fragment() {
+    <span class="s2">// TODO: Rename and change types of parameters</span>
+    private <span class="s0">var </span>param1: String? = <span class="s0">null</span>
+    private <span class="s0">var </span>param2: String? = <span class="s0">null</span>
+    private <span class="s0">var </span>layoutManager: RecyclerView.LayoutManager? = <span class="s0">null</span>
+    private <span class="s0">var </span>adapter: RecyclerView.Adapter&lt;recyclerAdapter.ViewHolder&gt;? = <span class="s0">null</span>
+    override <span class="s0">fun </span>onCreate(savedInstanceState: Bundle?) {
+        <span class="s0">super</span>.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+
+        <span class="s2">//recyclerview.layoutManager = LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false)</span>
+    }
+
+    override <span class="s0">fun </span>onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        <span class="s2">// Inflate the layout for this fragment</span>
+
+        <span class="s0">return </span>inflater.inflate(R.layout.fragment_learn, container, <span class="s0">false</span>)
+    }
+
+    override <span class="s0">fun </span>onViewCreated(view: View, savedInstanceState: Bundle?) {
+        <span class="s0">val </span>topics:ArrayList&lt;String&gt; = ArrayList()
+        <span class="s0">for</span>(i <span class="s0">in </span><span class="s4">1</span>..<span class="s4">100</span>)
+        {
+            topics.add(<span class="s3">&quot;Bike # </span><span class="s0">$</span>i<span class="s3">&quot;</span>)
+        }
+            recyclerview.apply {
+                <span class="s2">// set a LinearLayoutManager to handle Android</span>
+                <span class="s2">// RecyclerView behavior</span>
+                layoutManager = LinearLayoutManager(activity,RecyclerView.HORIZONTAL,<span class="s0">false</span>)
+                <span class="s2">// set the custom adapter to the RecyclerView</span>
+                adapter = recyclerAdapter(topics)}
+        }
+
+
+    companion <span class="s0">object </span>{
+        <span class="s2">/**</span>
+         <span class="s2">* Use this factory method to create a new instance of</span>
+         <span class="s2">* this fragment using the provided parameters.</span>
+         <span class="s2">*</span>
+         <span class="s2">* </span><span class="s5">@param </span><span class="s2">param1 Parameter 1.</span>
+         <span class="s2">* </span><span class="s5">@param </span><span class="s2">param2 Parameter 2.</span>
+         <span class="s2">* </span><span class="s5">@return </span><span class="s2">A new instance of fragment learn.</span>
+         <span class="s2">*/</span>
+        <span class="s2">// TODO: Rename and change types and number of parameters</span>
+        @JvmStatic
+        <span class="s0">fun </span>newInstance(param1: String, param2: String) =
+            learn().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
+}</pre>
+</body>
+</html>

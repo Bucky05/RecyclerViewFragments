@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.codingblocks.recyclerviewfragments
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import kotlinx.android.synthetic.main.activity_main.*
+
+<span class="s0">class </span>MainActivity : AppCompatActivity() {
+    override <span class="s0">fun </span>onCreate(savedInstanceState: Bundle?) {
+        <span class="s0">super</span>.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+
+    <span class="s0">fun </span>menu(view: View) {
+        <span class="s0">val </span>manager:FragmentManager = supportFragmentManager
+        <span class="s0">val </span>transaction:FragmentTransaction = manager.beginTransaction()
+        <span class="s0">val </span>learn = learn()
+        transaction.replace(R.id.fragment1,learn)
+        transaction.commit()
+    }
+}</pre>
+</body>
+</html>
